@@ -1,5 +1,5 @@
 {
-  "name": "just-path-hospital-server",
+  "name": "tommys-hospital-server",
   "version": "1.0.0",
   "description": "Backend server and dashboard system for TOMMY'S HOSPITAL",
   "main": "index.js",

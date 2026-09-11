@@ -65,7 +65,7 @@ Your message:
 
 If your enquiry is urgent please call us directly:
 Phone: +234 801 234 5678
-Email: info@justpathhospital.com
+Email: info@tommyshospital.com
 Address: 12 Hospital Road, Ikeja, Lagos, Nigeria
 
 Working Hours:

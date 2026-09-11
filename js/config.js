@@ -3,7 +3,7 @@
 // ============================================================================
 // When deploying to Render & Netlify:
 // Replace the URL below with your actual deployed Render backend URL.
-// Example: const API_BASE_URL = 'https://just-path-hospital-backend.onrender.com';
+// Example: const API_BASE_URL = 'https://tommys-hospital.onrender.com';
 // For local development with backend running locally, use 'http://localhost:3000'
 // ============================================================================
 

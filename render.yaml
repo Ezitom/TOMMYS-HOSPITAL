@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: just-path-hospital-backend
+    name: tommys-hospital
     runtime: node
     plan: free
     buildCommand: cd server && npm install
@@ -10,7 +10,7 @@ services:
         value: 10000
       - key: NODE_ENV
         value: production
-      # REPLACE WITH YOUR ACTUAL NETLIFY FRONTEND URL (e.g. https://justpathhospital.netlify.app)
+      # REPLACE WITH YOUR ACTUAL NETLIFY FRONTEND URL (e.g. https://tommys-hospital.netlify.app)
       - key: FRONTEND_URL
         value: https://YOUR-SITE-NAME.netlify.app
       # Supabase configuration (fill these in Render Dashboard or .env)

@@ -180,7 +180,7 @@ async function loadAdminPatients() {
     if (exportBtn) {
         exportBtn.addEventListener('click', () => exportCSV(allAdminPatients,
             ['full_name', 'email', 'phone', 'gender', 'blood_group', 'assigned_doctor', 'created_at'],
-            'just-path-patients.csv'));
+            'tommys-hospital-patients.csv'));
     }
 
     // Pagination
@@ -487,7 +487,7 @@ async function loadAdminAppointments() {
         exportBtn.addEventListener('click', () => {
             exportCSV(allAdminAppointments,
                 ['patient.full_name', 'doctor.full_name', 'department', 'appointment_date', 'appointment_time', 'status', 'reason'],
-                'just-path-appointments.csv');
+                'tommys-hospital-appointments.csv');
         });
     }
 }

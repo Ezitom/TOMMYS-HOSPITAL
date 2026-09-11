@@ -59,19 +59,13 @@ app.use(cors({
 // Parse JSON request bodies
 app.use(express.json());
 
-// Serve dashboards static folder under /dashboards path
-app.use('/dashboards', express.static(path.join(__dirname, '../dashboards')));
+// Root health check endpoint
+app.get('/', (req, res) => {
+    res.status(200).send('Backend is running');
+});
 
-// Serve public static hospital website assets and specific pages (excluding server directory)
-app.use('/css', express.static(path.join(__dirname, '../css')));
-app.use('/js', express.static(path.join(__dirname, '../js')));
-app.use('/images', express.static(path.join(__dirname, '../images')));
-
-const publicPages = ['about.html', 'contact.html', 'index.html', 'services.html'];
-publicPages.forEach(page => {
-    app.get(`/${page}`, (req, res) => {
-        res.sendFile(path.join(__dirname, `../${page}`));
-    });
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ status: 'ok', message: 'Backend is running' });
 });
 
 // Test email route — remove before going live
@@ -126,10 +120,7 @@ app.use('/api/appointments', appointmentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/contact', contactRouter);
 
-// Simple root catch-all to redirect or render main index
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-});
+
 
 app.listen(PORT, () => {
     console.log(`TOMMY'S HOSPITAL server is running on http://localhost:${PORT}`);

@@ -24,10 +24,10 @@ function getTransporter() {
   return transporter;
 }
 
-async function sendEmail({ to, subject, message }) {
+async function sendEmail({ to, subject, message, html }) {
   console.log('[sendEmail] Called — to:', to, '| subject:', subject);
 
-  if (!to || !subject || !message) {
+  if (!to || !subject || (!message && !html)) {
     console.error('[sendEmail] Missing required fields — to:', to, 'subject:', subject, 'message:', !!message);
     return { success: false, error: 'Missing required fields' };
   }
@@ -37,11 +37,15 @@ async function sendEmail({ to, subject, message }) {
     return { success: false, error: 'Email transporter not configured. Check GMAIL_USER and GMAIL_APP_PASSWORD in .env' };
   }
 
+  const emailHtml = html || (typeof message === 'string' && /<[a-z][\s\S]*>/i.test(message) ? message : undefined);
+  const plainText = message ? (emailHtml ? message.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim() : message) : undefined;
+
   const mailOptions = {
     from: `"${process.env.EMAIL_FROM_NAME || 'TOMMY\'S HOSPITAL'}" <${process.env.GMAIL_USER}>`,
     to: to,
     subject: subject,
-    text: message
+    ...(plainText ? { text: plainText } : {}),
+    ...(emailHtml ? { html: emailHtml } : {})
   };
 
   try {

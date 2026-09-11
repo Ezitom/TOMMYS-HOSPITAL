@@ -7,7 +7,7 @@
 // For local development with backend running locally, use 'http://localhost:3000'
 // ============================================================================
 
-const API_BASE_URL = 'https://YOUR-RENDER-APP-NAME.onrender.com';
+const API_BASE_URL = 'https://tommys-hospital.onrender.com';
 
 // Attach to window for global access across all frontend pages & dashboards
 if (typeof window !== 'undefined') {

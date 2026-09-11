@@ -40,8 +40,15 @@ app.use(cors({
         // Allow requests with no origin (such as mobile apps, curl, or Postman)
         if (!origin) return callback(null, true);
 
-        // Allow explicitly configured origins or Netlify deployment domains
+        // Allow explicitly configured origins, GitHub Pages, or Netlify deployment domains
+        let frontendOrigin = null;
+        if (process.env.FRONTEND_URL) {
+            try { frontendOrigin = new URL(process.env.FRONTEND_URL).origin; } catch (_) {}
+        }
+
         const isAllowed = allowedOrigins.includes(origin) ||
+                          (frontendOrigin && origin === frontendOrigin) ||
+                          /^https:\/\/[a-zA-Z0-9-]+\.github\.io$/.test(origin) ||
                           /^https:\/\/[a-zA-Z0-9-]+(?:\.netlify\.app|--[a-zA-Z0-9-]+\.netlify\.app)$/.test(origin);
 
         if (isAllowed) {

@@ -55,6 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     showToast("Login successful!", "success");
 
+                    // Track login in Google Tag Manager
+                    if (typeof window !== 'undefined' && window.dataLayer) {
+                        window.dataLayer.push({
+                            event: 'login_success',
+                            user_role: result.data.role
+                        });
+                    }
+
                     // Redirect based on user role
                     setTimeout(() => {
                         if (result.data.role === 'patient') {
@@ -134,6 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (result.success) {
                     showToast("Registration successful! Redirecting to login...", "success");
+
+                    // Track registration in Google Tag Manager
+                    if (typeof window !== 'undefined' && window.dataLayer) {
+                        window.dataLayer.push({
+                            event: 'registration_success',
+                            user_role: 'patient'
+                        });
+                    }
+
                     setTimeout(() => {
                         window.location.href = '/dashboards/auth/login.html?registered=true';
                     }, 1500);

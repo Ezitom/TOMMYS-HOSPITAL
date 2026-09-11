@@ -1,0 +1,10 @@
+{
+  "name": "just-path-hospital",
+  "version": "1.0.0",
+  "description": "TOMMY'S HOSPITAL System",
+  "scripts": {
+    "build": "npm install --prefix server",
+    "start": "npm start --prefix server",
+    "dev": "npm run dev --prefix server"
+  }
+}

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact TOMMY'S HOSPITAL in Ikeja, Lagos, Nigeria. Book a consultation, enquire about clinical packages, or reach our emergency emergency services.">
+    <title>Contact Us: TOMMY'S HOSPITAL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('jph-theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>TOMMY'S HOSPITAL</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Login Dropdown Wrapper -->
+                <div class="login-dropdown-wrapper">
+                    <button class="btn-login-nav" id="login-nav-btn">Login</button>
+                    <div class="login-dropdown-menu" id="login-dropdown-menu">
+                        <a href="dashboards/auth/login.html?role=patient" class="dropdown-item">
+                            <svg class="dropdown-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Patient Login</span>
+                                <span class="dropdown-item-desc">Access your health records</span>
+                            </div>
+                        </a>
+                        <a href="dashboards/auth/login.html?role=doctor" class="dropdown-item">
+                            <svg class="dropdown-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Doctor Login</span>
+                                <span class="dropdown-item-desc">View your patients and schedule</span>
+                            </div>
+                        </a>
+                        <a href="dashboards/auth/login.html?role=admin" class="dropdown-item">
+                            <svg class="dropdown-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Admin Login</span>
+                                <span class="dropdown-item-desc">Manage the hospital system</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Our Services</a></li>
+            <li><a href="contact.html" class="mobile-nav-link active">Contact Us</a></li>
+            <li class="mobile-nav-divider"></li>
+            <li class="mobile-nav-section-title">Login As</li>
+            <li>
+                <a href="dashboards/auth/login.html?role=patient" class="mobile-nav-link-login">
+                    <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Patient Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="dashboards/auth/login.html?role=doctor" class="mobile-nav-link-login">
+                    <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                    <span>Doctor Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="dashboards/auth/login.html?role=admin" class="mobile-nav-link-login">
+                    <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Admin Login</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Reach out to us for consultation bookings, inquiries, or emergency support.</p>
+        </div>
+    </section>
+
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container emergency-banner-content">
+            Emergency? Call us now: <a href="tel:+2348012345678" class="emergency-banner-link">+2349022295016</a>
+        </div>
+    </div>
+
+    <!-- Contact Section Layout -->
+    <section class="reveal">
+        <div class="container contact-layout">
+            <!-- Left Column: Contact Details -->
+            <div class="contact-info-list">
+                <h2>Contact Details</h2>
+                
+                <!-- Address -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3>Our Address</h3>
+                        <p>12 Hospital Road, Ikeja, Lagos, Nigeria</p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3>Phone Numbers</h3>
+                        <p><a href="tel:+2348012345678" class="contact-info-link">+2349022295016</a></p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3>Email Support</h3>
+                        <p><a href="mailto:info@justpathhospital.com" class="contact-info-link">info@justpathhospital.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Operating Hours -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3>Operating Hours</h3>
+                        <p>Monday to Friday: 8am to 8pm</p>
+                        <p>Saturday: 9am to 5pm</p>
+                        <p>Sunday: Emergency Services Only</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Appointment Booking Form -->
+            <div class="contact-form-container">
+                <h2>Book an Appointment</h2>
+                <p style="margin-bottom: 24px;">Fill out the form below and our team will contact you within 24 hours to confirm your appointment.</p>
+                
+                <form id="appointment-form" class="contact-form" novalidate>
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="full_name" class="form-control" placeholder="e.g. Chinelo Obi" required>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="e.g. name@example.com" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. +2349022295016" required>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" name="department" class="form-control" required>
+                            <option value="" disabled selected>Select clinical department</option>
+                            <option value="General Medicine">General Medicine</option>
+                            <option value="Emergency Care">Emergency Care</option>
+                            <option value="Maternal Health">Maternal Health</option>
+                            <option value="Laboratory and Diagnostics">Laboratory and Diagnostics</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Mental Health and Counseling">Mental Health and Counseling</option>
+                        </select>
+                    </div>
+
+                    <!-- Date and Time Row -->
+                    <div class="form-date-time-row">
+                        <div class="form-group">
+                            <label for="preferred-date">Preferred Date</label>
+                            <input type="date" id="preferred-date" name="preferred_date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred-time">Preferred Time</label>
+                            <input type="time" id="preferred-time" name="preferred_time" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <!-- Reason -->
+                    <div class="form-group">
+                        <label for="reason">Reason for Visit</label>
+                        <textarea id="reason" name="reason" rows="4" class="form-control" placeholder="Briefly describe your symptoms or the reason for your visit..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="appt-submit-btn">Request Appointment</button>
+                </form>
+                
+                <!-- Success Message -->
+                <div class="form-success-message" id="form-success" style="display:none;"></div>
+                <!-- Error Message -->
+                <div class="form-error-message" id="form-error" style="display:none; background-color:#FEF2F2; color:#EF4444; padding:14px 16px; border-radius:8px; font-size:14px; margin-top:16px;"></div>
+            </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="container">
+            <div class="map-placeholder">
+                <div class="map-placeholder-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3>TOMMY'S HOSPITAL Location</h3>
+                <p>12 Hospital Road, Ikeja, Lagos, Nigeria</p>
+                <p class="caption">Clinic and Diagnostic Facility Location</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>TOMMY'S HOSPITAL</span>
+                </a>
+                <p class="footer-tagline">Caring for every life, every day.</p>
+                <div style="display: flex; gap: 12px; margin-top: 8px;">
+                    <a href="#" aria-label="Facebook" style="color: var(--text-secondary);">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V2h-3c-3 0-5 2-5 5v1z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter" style="color: var(--text-secondary);">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.95 4.57a10 10 0 01-2.82.77 4.96 4.96 0 002.16-2.72c-.95.55-2 .95-3.12 1.18a4.92 4.92 0 00-8.38 4.48c-4.1-.2-7.72-2.17-10.15-5.15a4.92 4.92 0 001.52 6.57 4.9 4.9 0 01-2.23-.62v.06a4.92 4.92 0 003.95 4.83 4.9 4.9 0 01-2.22.08 4.92 4.92 0 004.6 3.42A9.9 9.9 0 010 19.54a13.9 13.9 0 007.55 2.21c9.06 0 14-7.5 14-14 0-.2 0-.4 0-.6a10 10 0 002.4-2.58z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="services.html" class="footer-link">Our Services</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html" class="footer-link">General Medicine</a></li>
+                    <li><a href="services.html" class="footer-link">Emergency Care</a></li>
+                    <li><a href="services.html" class="footer-link">Maternal Health</a></li>
+                    <li><a href="services.html" class="footer-link">Diagnostics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact Info</h4>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>12 Hospital Road, Ikeja, Lagos, Nigeria</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:+2348012345678" class="footer-contact-link">+2349022295016</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:info@justpathhospital.com" class="footer-contact-link">info@justpathhospital.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>&copy; 2025 TOMMY'S HOSPITAL. All rights reserved.</span>
+            <span>Accredited NHIS Healthcare Provider</span>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    // -------------------------------------------------------
+    // Shared: show inline form feedback message
+    // -------------------------------------------------------
+    function showFormMessage(form, msg, type) {
+      const existing = form.querySelector('.form-feedback-msg');
+      if (existing) existing.remove();
+
+      const div = document.createElement('div');
+      div.className = 'form-feedback-msg';
+      div.textContent = msg;
+      div.style.cssText = [
+        'padding: 12px 16px',
+        'border-radius: 8px',
+        'font-size: 14px',
+        'font-weight: 500',
+        'margin-top: 12px',
+        type === 'success'
+          ? 'background-color:#D1FAE5;color:#065F46;border:1px solid #6EE7B7;'
+          : 'background-color:#FEE2E2;color:#991B1B;border:1px solid #FCA5A5;'
+      ].join(';');
+
+      form.appendChild(div);
+      setTimeout(() => { if (div.parentNode) div.remove(); }, 6000);
+    }
+
+    // -------------------------------------------------------
+    // Appointment form -> POST /api/appointments/public
+    // -------------------------------------------------------
+    const appointmentForm = document.getElementById('appointment-form');
+
+    if (appointmentForm) {
+      appointmentForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitBtn = appointmentForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+
+        const full_name    = appointmentForm.querySelector('[name="full_name"]')?.value?.trim();
+        const email        = appointmentForm.querySelector('[name="email"]')?.value?.trim();
+        const phone        = appointmentForm.querySelector('[name="phone"]')?.value?.trim();
+        const department   = appointmentForm.querySelector('[name="department"]')?.value?.trim();
+        const preferred_date = appointmentForm.querySelector('[name="preferred_date"]')?.value?.trim();
+        const preferred_time = appointmentForm.querySelector('[name="preferred_time"]')?.value?.trim();
+        const reason       = appointmentForm.querySelector('[name="reason"]')?.value?.trim();
+
+        if (!full_name || !email || !phone || !department || !preferred_date || !preferred_time || !reason) {
+          showFormMessage(appointmentForm, 'Please fill in all fields.', 'error');
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showFormMessage(appointmentForm, 'Please enter a valid email address.', 'error');
+          return;
+        }
+
+        const selectedDate = new Date(preferred_date);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (selectedDate < today) {
+          showFormMessage(appointmentForm, 'Please select a future date for your appointment.', 'error');
+          return;
+        }
+
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+
+        try {
+          const apiEndpoint = (typeof window !== 'undefined' && window.API_BASE_URL)
+            ? `${window.API_BASE_URL.replace(/\/+$/, '')}/api/appointments/public`
+            : '/api/appointments/public';
+
+          const response = await fetch(apiEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ full_name, email, phone, department, preferred_date, preferred_time, reason })
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            showFormMessage(
+              appointmentForm,
+              'Your appointment request has been received. Our team will contact you within 24 hours to confirm.',
+              'success'
+            );
+            appointmentForm.reset();
+          } else {
+            showFormMessage(appointmentForm, data.error || 'Something went wrong. Please try again.', 'error');
+          }
+        } catch (err) {
+          console.error('[appointment-form] Error:', err);
+          showFormMessage(appointmentForm, 'Something went wrong. Please call us on +2349022295016.', 'error');
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: just-path-hospital-backend
+    runtime: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      # REPLACE WITH YOUR ACTUAL NETLIFY FRONTEND URL (e.g. https://justpathhospital.netlify.app)
+      - key: FRONTEND_URL
+        value: https://YOUR-SITE-NAME.netlify.app
+      # Supabase configuration (fill these in Render Dashboard or .env)
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      # Gmail SMTP configuration for Nodemailer
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: TOMMY'S HOSPITAL

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TOMMY'S HOSPITAL in Lagos, Nigeria provides compassionate, world-class healthcare. Book an appointment today for family medicine, emergency care, maternal health, and laboratory services.">
+    <title>TOMMY'S HOSPITAL: Your Health, Our Priority</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('jph-theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>TOMMY'S HOSPITAL</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Login Dropdown Wrapper -->
+                <div class="login-dropdown-wrapper">
+                    <button class="btn-login-nav" id="login-nav-btn">Login</button>
+                    <div class="login-dropdown-menu" id="login-dropdown-menu">
+                        <a href="dashboards/auth/login.html?role=patient" class="dropdown-item">
+                            <svg class="dropdown-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Patient Login</span>
+                                <span class="dropdown-item-desc">Access your health records</span>
+                            </div>
+                        </a>
+                        <a href="dashboards/auth/login.html?role=doctor" class="dropdown-item">
+                            <svg class="dropdown-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Doctor Login</span>
+                                <span class="dropdown-item-desc">View your patients and schedule</span>
+                            </div>
+                        </a>
+                        <a href="dashboards/auth/login.html?role=admin" class="dropdown-item">
+                            <svg class="dropdown-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Admin Login</span>
+                                <span class="dropdown-item-desc">Manage the hospital system</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <!-- Sun Icon (shown in dark mode) -->
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (shown in light mode) -->
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Our Services</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+            <li class="mobile-nav-divider"></li>
+            <li class="mobile-nav-section-title">Login As</li>
+            <li>
+                <a href="dashboards/auth/login.html?role=patient" class="mobile-nav-link-login">
+                    <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Patient Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="dashboards/auth/login.html?role=doctor" class="mobile-nav-link-login">
+                    <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                    <span>Doctor Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="dashboards/auth/login.html?role=admin" class="mobile-nav-link-login">
+                    <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Admin Login</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero section-bg-surface">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Your Health, Our Priority</h1>
+                <p class="hero-subtitle">Compassionate, world-class care at TOMMY'S HOSPITAL, Lagos.</p>
+                <div class="hero-ctas">
+                    <a href="contact.html" class="btn btn-primary">Book an Appointment</a>
+                    <a href="services.html" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Inline SVG Hospital Scene -->
+                <svg class="hospital-scene" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Clouds -->
+                    <path class="scene-cloud-1" d="M80 80 C80 60, 120 60, 130 75 C140 60, 180 65, 180 85 C180 100, 150 105, 130 105 C100 105, 80 95, 80 80 Z" fill="var(--border-color)" opacity="0.4"/>
+                    <path class="scene-cloud-2" d="M360 120 C360 105, 390 105, 400 115 C410 105, 440 110, 440 125 C440 135, 410 140, 400 140 C380 140, 360 130, 360 120 Z" fill="var(--border-color)" opacity="0.3"/>
+                    
+                    <!-- Floating Ambient Particles -->
+                    <circle class="scene-particle" cx="120" cy="180" r="4" fill="var(--accent-color)" opacity="0.6" />
+                    <circle class="scene-particle" cx="380" cy="220" r="6" fill="var(--primary-color)" opacity="0.3" />
+                    <circle class="scene-particle" cx="150" cy="300" r="5" fill="var(--accent-color)" opacity="0.4" />
+                    
+                    <!-- Hospital Building Silhouette -->
+                    <g class="scene-building">
+                        <rect x="200" y="160" width="160" height="200" rx="8" fill="var(--border-color)" opacity="0.5"/>
+                        <rect x="220" y="120" width="120" height="240" rx="12" fill="var(--surface-color)" stroke="var(--border-color)" stroke-width="2"/>
+                        <!-- Windows -->
+                        <rect x="240" y="150" width="24" height="24" rx="4" fill="var(--border-color)"/>
+                        <rect x="284" y="150" width="24" height="24" rx="4" fill="var(--border-color)"/>
+                        <rect x="240" y="200" width="24" height="24" rx="4" fill="var(--border-color)"/>
+                        <rect x="284" y="200" width="24" height="24" rx="4" fill="var(--border-color)"/>
+                        <rect x="240" y="250" width="24" height="24" rx="4" fill="var(--border-color)"/>
+                        <rect x="284" y="250" width="24" height="24" rx="4" fill="var(--border-color)"/>
+                        
+                        <!-- Door -->
+                        <path d="M260 360 V310 C260 305, 265 300, 270 300 H278 C283 300, 288 305, 288 310 V360" fill="var(--primary-color)" opacity="0.8"/>
+                        
+                        <!-- Red Cross Shield -->
+                        <g class="scene-cross">
+                            <rect x="264" y="40" width="32" height="32" rx="6" fill="var(--danger-color)" />
+                            <path d="M280 46 V66 M270 56 H290" stroke="white" stroke-width="4" stroke-linecap="round" />
+                            <line x1="280" y1="72" x2="280" y2="120" stroke="var(--border-color)" stroke-width="3" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <!-- Pulse/heartbeat line running across the bottom of the hero -->
+        <div class="heartbeat-container">
+            <svg class="heartbeat-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                <path class="heartbeat-path" d="M0,30 L300,30 L315,10 L330,50 L345,25 L355,35 L365,30 L700,30 L715,10 L730,50 L745,25 L755,35 L765,30 L1200,30" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="reveal">
+        <div class="container grid-2">
+            <div class="about-preview-img-container">
+                <img src="images/about-doctor.jpg" alt="Nigerian Medical Specialist at TOMMY'S HOSPITAL">
+            </div>
+            <div class="about-content">
+                <h2>Who We Are</h2>
+                <p style="margin-bottom: 24px;">TOMMY'S HOSPITAL has served the Lagos community since 2009. We offer world-class medical expertise, modern facilities, and a dedicated team of professionals focused on your absolute recovery and general well-being.</p>
+                <p style="margin-bottom: 32px;">Every day, we strive to bring clinical excellence and high standards of service to private healthcare in Nigeria, making modern medical diagnosis and treatment affordable and dignified.</p>
+                <a href="about.html" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="section-bg-surface reveal">
+        <div class="container">
+            <h2>What We Offer</h2>
+            <div class="grid-4">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Stethoscope SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5"></path>
+                            <path d="M12 2v10a4 4 0 0 0 8 0V2"></path>
+                            <path d="M12 6H4a2 2 0 0 0-2 2v4a8 8 0 0 0 16 0"></path>
+                        </g>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">General Medicine</h3>
+                    <p>Routine consultation, chronic ailment management, and comprehensive clinical checkups.</p>
+                    <a href="services.html" class="card-link">Learn More &rarr;</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Ambulance SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Emergency Care</h3>
+                    <p>24/7 critical trauma, ambulance transit, and acute resuscitation systems.</p>
+                    <a href="services.html" class="card-link">Learn More &rarr;</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Heart SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Maternal Health</h3>
+                    <p>Antenatal packages, clean delivery rooms, and experienced pediatrician support.</p>
+                    <a href="services.html" class="card-link">Learn More &rarr;</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Microscope SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 18h8"></path>
+                            <path d="M3 22h18"></path>
+                            <path d="M14 22a7 7 0 1 0-14 0"></path>
+                            <path d="M9 14h2"></path>
+                            <path d="M9 12a3 3 0 0 1 6 0v5H9z"></path>
+                            <path d="M12 3a3 3 0 0 0-3 3v3h6V6a3 3 0 0 0-3-3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Diagnostics</h3>
+                    <p>Modern lab analysis, digital imaging, and timely diagnosis reporting.</p>
+                    <a href="services.html" class="card-link">Learn More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us-section reveal">
+        <div class="container">
+            <h2 style="display:none;">Why Choose Us</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years of Service</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">Medical Specialists</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Patients Treated</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Emergency Care</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Testimonials Section -->
+    <section class="reveal">
+        <div class="container">
+            <h2>What Our Patients Say</h2>
+            <div class="grid-3">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"The emergency team at TOMMY'S HOSPITAL saved my husband's life after a severe asthma attack. They reacted fast and kept us informed through it all."</p>
+                    <div class="testimonial-user">
+                        <img src="images/patient-testimonial-1.jpg" alt="Chinyere Alao" class="testimonial-avatar">
+                        <div>
+                            <h4 class="testimonial-name">Chinyere Alao</h4>
+                            <p class="caption">Lagos Resident</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"Excellent postnatal support: the nurses are attentive, and Dr. Fatima Bello makes you feel completely at ease. I highly recommend their maternal packages."</p>
+                    <div class="testimonial-user">
+                        <img src="images/patient-testimonial-2.jpg" alt="Tunde Bakare" class="testimonial-avatar">
+                        <div>
+                            <h4 class="testimonial-name">Tunde Bakare</h4>
+                            <p class="caption">New Parent</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"Clinical hygiene is top tier, and their lab results are fast and precise. The doctors actually take time to explain what your medication does."</p>
+                    <div class="testimonial-user">
+                        <img src="images/patient-testimonial-3.jpg" alt="Amara Nwachukwu" class="testimonial-avatar">
+                        <div>
+                            <h4 class="testimonial-name">Amara Nwachukwu</h4>
+                            <p class="caption">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="cta-banner reveal">
+        <div class="container cta-banner-content">
+            <h2>Ready to take charge of your health?</h2>
+            <p style=" color: #fff;">Our specialists are available 24 hours a day to attend to your wellness needs. Schedule your diagnostic session or doctor visit today.</p>
+            <a href="contact.html" class="btn btn-white">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>TOMMY'S HOSPITAL</span>
+                </a>
+                <p class="footer-tagline">Caring for every life, every day.</p>
+                <div style="display: flex; gap: 12px; margin-top: 8px;">
+                    <a href="#" aria-label="Facebook" style="color: var(--text-secondary);">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V2h-3c-3 0-5 2-5 5v1z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter" style="color: var(--text-secondary);">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.95 4.57a10 10 0 01-2.82.77 4.96 4.96 0 002.16-2.72c-.95.55-2 .95-3.12 1.18a4.92 4.92 0 00-8.38 4.48c-4.1-.2-7.72-2.17-10.15-5.15a4.92 4.92 0 001.52 6.57 4.9 4.9 0 01-2.23-.62v.06a4.92 4.92 0 003.95 4.83 4.9 4.9 0 01-2.22.08 4.92 4.92 0 004.6 3.42A9.9 9.9 0 010 19.54a13.9 13.9 0 007.55 2.21c9.06 0 14-7.5 14-14 0-.2 0-.4 0-.6a10 10 0 002.4-2.58z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="services.html" class="footer-link">Our Services</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html" class="footer-link">General Medicine</a></li>
+                    <li><a href="services.html" class="footer-link">Emergency Care</a></li>
+                    <li><a href="services.html" class="footer-link">Maternal Health</a></li>
+                    <li><a href="services.html" class="footer-link">Diagnostics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact Info</h4>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>12 Hospital Road, Ikeja, Lagos, Nigeria</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:+2348012345678" class="footer-contact-link">+2349022295016</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:info@justpathhospital.com" class="footer-contact-link">info@justpathhospital.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>&copy; 2025 TOMMY'S HOSPITAL. All rights reserved.</span>
+            <span>Accredited NHIS Healthcare Provider</span>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

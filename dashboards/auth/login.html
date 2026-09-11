@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TOMMY'S HOSPITAL</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('jph-theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="/index.html" class="auth-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>TOMMY'S HOSPITAL</span>
+                </a>
+                <h2 id="login-heading">Welcome Back</h2>
+                <div id="login-badge-container" style="margin-top: 8px;"></div>
+                <p style="color: var(--text-secondary); margin-top: 4px;">Sign in to access your hospital dashboard</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <input type="hidden" id="login-role" name="role" value="">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 12px;">Sign In</button>
+            </form>
+
+            <div id="auth-register-section" style="text-align: center; margin-top: 24px; font-size: 14px;">
+                <span style="color: var(--text-secondary);">New patient?</span>
+                <a href="register.html" style="color: var(--primary-color); font-weight: 600; margin-left: 4px;">Create an account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script references -->
+    <script src="../../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            
+            // Check for registration success
+            if (params.get('registered') === 'true') {
+                showToast("Account created successfully. Please sign in below.", "success");
+            }
+
+            // Role customization
+            const role = params.get('role');
+            const heading = document.getElementById('login-heading');
+            const badgeContainer = document.getElementById('login-badge-container');
+            const hiddenRoleField = document.getElementById('login-role');
+
+            if (role) {
+                hiddenRoleField.value = role;
+                let headingText = "Login";
+                let badgeText = "";
+
+                if (role === 'patient') {
+                    headingText = "Patient Login";
+                    badgeText = "Patient Portal";
+                } else if (role === 'doctor') {
+                    headingText = "Doctor Login";
+                    badgeText = "Doctor Portal";
+                } else if (role === 'admin') {
+                    headingText = "Admin Login";
+                    badgeText = "Admin Portal";
+                }
+
+                heading.textContent = headingText;
+                if (badgeText) {
+                    badgeContainer.innerHTML = `<span class="badge badge-pill badge-primary" style="display: inline-block; background-color: var(--primary-color); color: var(--white); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.5px;">${badgeText}</span>`;
+                }
+            } else {
+                heading.textContent = "Login";
+            }
+
+            // Role-specific register section
+            const registerSection = document.getElementById('auth-register-section');
+            if (role === 'doctor') {
+                registerSection.innerHTML = '<p style="color: var(--text-secondary); font-size: 13px; margin: 0;">Doctor accounts are created by the hospital admin.</p>';
+            } else if (role === 'admin') {
+                registerSection.innerHTML = '<p style="color: var(--text-secondary); font-size: 13px; margin: 0;">Admin accounts are created internally. Contact the hospital administrator.</p>';
+            }
+            // patient or no role: leave as-is
+        });
+    </script>
+</body>
+</html>

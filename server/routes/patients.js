@@ -90,8 +90,7 @@ router.get('/appointments', async (req, res) => {
                 doctor:profiles!appointments_doctor_id_fkey(full_name)
             `)
             .eq('patient_id', req.user.id)
-            .order('appointment_date', { ascending: false })
-            .order('appointment_time', { ascending: false });
+            .order('created_at', { ascending: false });
 
         if (error) {
             return res.status(400).json({ success: false, error: error.message });

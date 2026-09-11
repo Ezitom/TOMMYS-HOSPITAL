@@ -54,8 +54,7 @@ router.get('/appointments', async (req, res) => {
                 patient:profiles!appointments_patient_id_fkey(full_name, phone, blood_group, date_of_birth)
             `)
             .eq('doctor_id', req.user.id)
-            .order('appointment_date', { ascending: true })
-            .order('appointment_time', { ascending: true });
+            .order('created_at', { ascending: false });
 
         if (error) {
             return res.status(400).json({ success: false, error: error.message });
@@ -451,4 +450,26 @@ router.put('/notifications/read', async (req, res) => {
     }
 });
 
+// PATCH /api/doctors/appointments/:id/acknowledge - mark appointment as seen
+router.patch('/appointments/:id/acknowledge', async (req, res) => {
+    try {
+        const { data, error } = await supabaseAdmin
+            .from('appointments')
+            .update({ is_acknowledged: true })
+            .eq('id', req.params.id)
+            .eq('doctor_id', req.user.id)
+            .select()
+            .single();
+
+        if (error) {
+            return res.status(400).json({ success: false, error: error.message });
+        }
+
+        return res.json({ success: true, data });
+    } catch (err) {
+        return res.status(500).json({ success: false, error: 'Server error: ' + err.message });
+    }
+});
+
 module.exports = router;
+

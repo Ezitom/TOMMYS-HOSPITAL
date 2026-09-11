@@ -520,12 +520,14 @@ function renderAdminAppointmentsTable(appointments) {
         const isPublic = !a.patient_id;
 
         if (!isPublic && a.patient) {
-            requesterHtml = `<span style="font-weight:600;">${a.patient.full_name}</span>`;
+            const newBadge = !a.is_acknowledged ? '<span class="badge-new">NEW</span>' : '';
+            requesterHtml = `<span style="font-weight:600;">${a.patient.full_name}</span>${newBadge}`;
         } else if (isPublic && a.notes) {
             // Extract name from notes: "Public request from: NAME | Email: ... | Phone: ..."
             const nameMatch = a.notes.match(/Public request from:\s*([^|]+)/);
             const extractedName = nameMatch ? nameMatch[1].trim() : 'Walk-in';
-            requesterHtml = `<span style="font-weight:600;">${extractedName}</span> <span class="badge badge-walkin">Walk-in</span>`;
+            const newBadge = !a.is_acknowledged ? '<span class="badge-new">NEW</span>' : '';
+            requesterHtml = `<span style="font-weight:600;">${extractedName}</span> <span class="badge badge-walkin">Walk-in</span>${newBadge}`;
         } else {
             requesterHtml = '<span style="color:var(--text-secondary);">Unknown</span>';
         }
@@ -574,6 +576,18 @@ function openManageApptModal(id) {
     document.getElementById('manage-appt-notes').value = appt.notes || '';
 
     document.getElementById('manage-appt-modal').classList.add('show');
+
+    // Acknowledge (clear NEW badge) if not yet seen
+    if (!appt.is_acknowledged) {
+        appt.is_acknowledged = true; // optimistic update
+        apiRequest(`/api/admin/appointments/${id}/acknowledge`, { method: 'PATCH' });
+        // Re-render to remove badge immediately without a full reload
+        renderAdminAppointmentsTable(
+            document.querySelector('#filter-status') && document.querySelector('#filter-status').value !== 'all'
+                ? allAdminAppointments.filter(a => a.status === document.querySelector('#filter-status').value)
+                : allAdminAppointments
+        );
+    }
 }
 
 function initManageApptModal() {

@@ -48,8 +48,10 @@ create table appointments (
   reason text,
   status text check (status in ('pending', 'confirmed', 'completed', 'cancelled')) default 'pending',
   notes text,
+  is_acknowledged boolean default false,
   created_at timestamptz default now()
 );
+
 
 -- Create medical_records table
 create table medical_records (

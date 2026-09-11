@@ -714,6 +714,25 @@ a {
     padding: 2px 8px;
 }
 
+.badge-new {
+    background: linear-gradient(135deg, #F59E0B, #EF4444);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: pulse-new 2s ease-in-out infinite;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+@keyframes pulse-new {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.8; transform: scale(1.08); }
+}
+
 /* Tab filters */
 .filter-tabs {
     display: flex;

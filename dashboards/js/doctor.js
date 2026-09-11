@@ -190,26 +190,40 @@ function renderDoctorAppointmentsTable(appointments) {
     tbody.innerHTML = appointments.map(a => {
         let actions = '';
         if (a.status === 'pending') {
-            actions = `<button class="btn btn-accent" style="padding:4px 10px;font-size:12px;" onclick="updateApptStatus('${a.id}','confirmed')">Confirm</button>`;
+            actions = `<button class="btn btn-accent" style="padding:4px 10px;font-size:12px;" onclick="acknowledgeAndUpdateStatus('${a.id}','confirmed')">Confirm</button>`;
         } else if (a.status === 'confirmed') {
-            actions = `<button class="btn btn-accent" style="padding:4px 10px;font-size:12px;" onclick="updateApptStatus('${a.id}','completed')">Mark Complete</button>`;
+            actions = `<button class="btn btn-accent" style="padding:4px 10px;font-size:12px;" onclick="acknowledgeAndUpdateStatus('${a.id}','completed')">Mark Complete</button>`;
         }
         if (a.status !== 'cancelled' && a.status !== 'completed') {
-            actions += ` <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;" onclick="updateApptStatus('${a.id}','cancelled')">Cancel</button>`;
+            actions += ` <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;" onclick="acknowledgeAndUpdateStatus('${a.id}','cancelled')">Cancel</button>`;
         }
         actions += ` <button class="btn btn-outline" style="padding:4px 10px;font-size:12px;" onclick="openNotesModal('${a.id}')">Notes</button>`;
+
+        const newBadge = !a.is_acknowledged ? '<span class="badge-new">NEW</span>' : '';
+        const patientName = a.patient ? a.patient.full_name : 'Unknown';
 
         return `
             <tr>
                 <td>${formatDateNG(a.appointment_date)}</td>
                 <td>${formatTime(a.appointment_time)}</td>
-                <td>${a.patient ? a.patient.full_name : 'Unknown'}</td>
+                <td>${patientName}${newBadge}</td>
                 <td style="max-width:160px;font-size:13px;">${a.reason || 'N/A'}</td>
                 <td>${statusBadge(a.status)}</td>
                 <td style="display:flex;gap:4px;flex-wrap:wrap;">${actions}</td>
             </tr>
         `;
     }).join('');
+}
+
+async function acknowledgeAndUpdateStatus(id, status) {
+    // Acknowledge first (fire and forget)
+    const appt = allDoctorAppointments.find(a => a.id === id);
+    if (appt && !appt.is_acknowledged) {
+        appt.is_acknowledged = true;
+        apiRequest(`/api/doctors/appointments/${id}/acknowledge`, { method: 'PATCH' });
+    }
+    // Then run the status update
+    await updateApptStatus(id, status);
 }
 
 async function updateApptStatus(id, status) {
@@ -260,6 +274,14 @@ function openNotesModal(appointmentId) {
     document.getElementById('notes-appointment-id').value = appointmentId;
     document.getElementById('appointment-notes-input').value = '';
     document.getElementById('notes-modal').classList.add('show');
+
+    // Acknowledge (clear NEW badge) if not yet seen
+    const appt = allDoctorAppointments.find(a => a.id === appointmentId);
+    if (appt && !appt.is_acknowledged) {
+        appt.is_acknowledged = true;
+        apiRequest(`/api/doctors/appointments/${appointmentId}/acknowledge`, { method: 'PATCH' });
+        renderDoctorAppointmentsTable(allDoctorAppointments);
+    }
 }
 
 // ── Doctor Records ────────────────────────────────────────────────────────────
